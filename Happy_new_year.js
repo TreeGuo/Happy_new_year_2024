@@ -208,13 +208,14 @@ var socket = new WebSocket('ws://localhost:8080');
 //         document.getElementById('senderInfo').value = "-- 来自 " + name + " 的新年祝福";
 //     }
 document.getElementById('emailForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // 阻止表单的默认提交行为
+    e.preventDefault();
 
-    var name = getParameterByName('name'); // 从URL获取用户名
+    var name = getParameterByName('name');
     var senderInfoField = document.getElementById('senderInfo');
     if (name && senderInfoField) {
         senderInfoField.value = "-- 来自 " + name + " 的新年祝福";
     }
+
     var formData = new FormData(this);
 
     fetch(this.action, {
@@ -222,7 +223,7 @@ document.getElementById('emailForm').addEventListener('submit', function(e) {
         body: formData,
     })
     .then(response => {
-        if(response.ok || response.status === 201 || response.status === 202) {
+        if(response.ok) {
             alert('祝福发送成功！');
         } else {
             console.log('Response Status:', response.status);
