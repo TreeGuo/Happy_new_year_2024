@@ -14,7 +14,7 @@ document.getElementById('nameForm').addEventListener('submit', function(e) {
     var blessing = personalizedBlessings[name];
 
     if (name && blessing) {
-        window.location.href = 'index.html?name=' + encodeURIComponent(name) + '&blessing=' + encodeURIComponent(blessing);
+        window.location.href = 'home.html?name=' + encodeURIComponent(name) + '&blessing=' + encodeURIComponent(blessing);
     } else {
         alert('抱歉！你的新年祝福还没来得及送达！敬请期待..');
     }
