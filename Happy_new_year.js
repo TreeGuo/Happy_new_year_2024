@@ -210,10 +210,12 @@ var socket = new WebSocket('ws://localhost:8080');
 document.getElementById('emailForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    var name = getParameterByName('name');
+    var recipientNameElement = document.querySelector('.name-bold');
+    var recipientName = recipientNameElement.textContent;
+    
     var senderInfoField = document.getElementById('senderInfo');
-    if (name && senderInfoField) {
-        senderInfoField.value = "-- 来自 " + name + " 的新年祝福";
+    if (recipientName && senderInfoField) {
+        senderInfoField.value = "-- 来自 " + recipientName + " 的新年祝福";
     }
 
     var formData = new FormData(this);
