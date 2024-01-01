@@ -15,10 +15,17 @@
     <!-- <p class="indent">衷心祝你在新的一年，跟所有的烦恼说拜拜，跟所有的快乐say嗨嗨！</p> -->
     <p class="signature">永远爱你的锅锅</p>
   </div>
-  <form id="emailForm">
+<!--   <form id="emailForm">
     <textarea id="message" placeholder="输入您的祝福...别忘了截图给我哦！"></textarea>
     <button type="submit">发送</button>
-  </form>
+  </form> -->
+
+<form id="emailForm" action="https://formspree.io/f/您的FormspreeID" method="POST">
+    <textarea id="message" name="message" placeholder="输入您的祝福...别忘了截图给我哦！"></textarea>
+    <button type="submit">发送</button>
+</form>
+
+
   
 <div id="greeting">Happy New Year 2024!</div>
 <canvas></canvas>
