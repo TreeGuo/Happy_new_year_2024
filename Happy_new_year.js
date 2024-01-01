@@ -189,9 +189,12 @@ document.getElementById('emailForm').addEventListener('submit', function(e) {
           throw new Error('服务器处理出错');
       }
   })
+  // .catch(error => {
+  //     alert('服务器故障，请截图此消息后以别的形式发送给我。');
+  // });
   .catch(error => {
-      alert('服务器故障，请截图此消息后以别的形式发送给我。');
-  });
+  console.log(error); // 输出错误信息到控制台
+});
 });
 
 
