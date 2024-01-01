@@ -1,0 +1,16 @@
+{
+  "name": "happy_n_y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "happy_ny.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "ws": "^8.16.0"
+  }
+}

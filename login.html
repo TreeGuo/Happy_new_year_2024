@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login for New Year Wishes</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 链接 CSS 文件 -->
+</head>
+<body>
+    <div class="center">
+        <h2 style="
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+        ">你准备好接收我的新年祝福了吗？</h2>
+        <form id="nameForm" class="login-form">
+            <input type="text" id="nameInput" placeholder="请输入你的名字">
+            <div id="error" style="color: red;"></div> <!-- 用于显示错误信息 -->
+            <button type="submit">接收新年祝福</button>
+        </form>
+        <div id="errorMessage" style="color: red;"></div>
+    </div>
+
+    <script src="login.js">
+    </script>
+</body>
+</html>

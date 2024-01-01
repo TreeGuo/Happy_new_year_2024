@@ -1,0 +1,112 @@
+/* index_styles.css */
+  body, html {
+    margin: 0;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+  }
+
+  #letter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1.2em;
+  z-index: 20;
+}
+
+#personalizedBlessing {
+  text-indent: 2em; /* 或者您希望的任何缩进大小 */
+}
+
+#greeting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+  color: white;
+}
+
+#letter p {
+  margin: 5px 0;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+}
+#emailForm {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+}
+
+#message {
+  /* width: 300px;
+  height: 100px; */
+  width: 300px; /* 设置文本框的宽度 */
+  height: 150px; /* 设置文本框的高度 */
+  padding: 10px; /* 设置内部填充 */
+  border: 1px solid #ccc; /* 设置边框样式 */
+  border-radius: 5px; /* 设置边框圆角 */
+  font-size: 16px; /* 设置字体大小 */
+  font-weight: bold; /* 设置字体粗细 */
+  color: blue; /* 设置字体颜色 */
+  background-color: #f8f8f8; /* 设置背景色 */
+}
+
+/* 如果需要修改按钮的样式 */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.to-color {
+    color: #FF0000; /* 设置"To"的颜色 */
+}
+.name-bold {
+    font-weight: bold; /* 使"某某"加粗 */
+}
+.indent {
+    text-indent: 2em; /* 或者使用padding-left */
+}
+
+.signature {
+    /* 您原有的签名样式 */
+}
+.signature::before {
+    content: "♥ "; /* 在文字后添加爱心 */
+    color: #FF0000;
+}
+.signature::after {
+    content: " ♥"; /* 在文字后添加爱心 */
+    color: #FF0000;
+}
+
+/* 响应式媒体查询 */
+@media screen and (max-width: 600px) {
+  #letter {
+      padding: 10px;
+  }
+
+  .signature {
+      text-align: center; /* 在小屏幕上让落款居中 */
+  }
+}
