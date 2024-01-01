@@ -197,17 +197,24 @@ var socket = new WebSocket('ws://localhost:8080');
 // });
 // });
 
+// document.getElementById('emailForm').addEventListener('submit', function(e) {
+//     e.preventDefault(); // 阻止表单的默认提交行为
+
+//     // 从URL参数获取用户名
+//     var name = getParameterByName('name');
+
+//     // 设置隐藏字段的值
+//     if (name) {
+//         document.getElementById('senderInfo').value = "-- 来自 " + name + " 的新年祝福";
+//     }
 document.getElementById('emailForm').addEventListener('submit', function(e) {
     e.preventDefault(); // 阻止表单的默认提交行为
 
-    // 从URL参数获取用户名
-    var name = getParameterByName('name');
-
-    // 设置隐藏字段的值
-    if (name) {
-        document.getElementById('senderInfo').value = "-- 来自 " + name + " 的新年祝福";
+    var name = getParameterByName('name'); // 从URL获取用户名
+    var senderInfoField = document.getElementById('senderInfo');
+    if (name && senderInfoField) {
+        senderInfoField.value = "-- 来自 " + name + " 的新年祝福";
     }
-
     var formData = new FormData(this);
 
     fetch(this.action, {
