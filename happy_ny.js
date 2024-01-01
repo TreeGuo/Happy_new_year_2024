@@ -2,7 +2,7 @@ const WebSocket = require('ws');
 const MongoClient = require('mongodb').MongoClient;
 
 // MongoDB 连接 URL
-const url = 'mongodb+srv://Christinaguo:ZFjSjUdfagrZzWfa@cluster0.muh8whd.mongodb.net/?retryWrites=true&w=majority';
+const url = 'mongodb+srv://Christinaguo:pasword@cluster0.muh8whd.mongodb.net/?retryWrites=true&w=majority';
 
 MongoClient.connect(url, (err, client) => {
     if (err) throw err;
