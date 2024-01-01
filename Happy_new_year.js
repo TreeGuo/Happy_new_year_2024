@@ -174,6 +174,30 @@ document.getElementById('emailForm').addEventListener('submit', function(e) {
     socket.send(message); // 通过 WebSocket 发送消息
 });
 
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // 阻止表单的默认提交行为
+
+    var formData = new FormData(this);
+
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if(response.ok) {
+            alert('祝福发送成功！');
+            // 可以在这里重定向到成功页面或重置表单
+            // window.location.href = 'thank-you.html';
+        } else {
+            throw new Error('服务器处理出错');
+        }
+    })
+    .catch(error => {
+        alert('服务器故障，请截图此消息后以别的形式发送给我。');
+        // 在这里，您可以将表单数据保存到某处，或者允许用户复制数据
+    });
+});
+
 
 socket.onmessage = function(event) {
     event.data.text().then(function(text) {
