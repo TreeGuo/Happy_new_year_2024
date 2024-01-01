@@ -174,27 +174,59 @@ var socket = new WebSocket('ws://localhost:8080');
 //     socket.send(message); // 通过 WebSocket 发送消息
 // });
 
-document.getElementById('emailForm').addEventListener('submit', function(e) {
-  e.preventDefault(); // 阻止表单的默认提交行为
-  var formData = new FormData(this);
+// document.getElementById('emailForm').addEventListener('submit', function(e) {
+//   e.preventDefault(); // 阻止表单的默认提交行为
+//   var formData = new FormData(this);
 
-  fetch(this.action, {
-      method: 'POST',
-      body: formData,
-  })
-  .then(response => {
-      if(response.ok) {
-          alert('祝福发送成功！');
-      } else {
-          throw new Error('服务器处理出错');
-      }
-  })
-  // .catch(error => {
-  //     alert('服务器故障，请截图此消息后以别的形式发送给我。');
-  // });
-  .catch(error => {
-  console.log(error); // 输出错误信息到控制台
-});
+//   fetch(this.action, {
+//       method: 'POST',
+//       body: formData,
+//   })
+//   .then(response => {
+//       if(response.ok) {
+//           alert('祝福发送成功！');
+//       } else {
+//           throw new Error('服务器处理出错');
+//       }
+//   })
+//   // .catch(error => {
+//   //     alert('服务器故障，请截图此消息后以别的形式发送给我。');
+//   // });
+//   .catch(error => {
+//   console.log(error); // 输出错误信息到控制台
+// });
+// });
+
+document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // 阻止表单的默认提交行为
+
+    // 从URL参数获取用户名
+    var name = getParameterByName('name');
+
+    // 设置隐藏字段的值
+    if (name) {
+        document.getElementById('senderInfo').value = "-- 来自 " + name + " 的新年祝福";
+    }
+
+    var formData = new FormData(this);
+
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if(response.ok || response.status === 201 || response.status === 202) {
+            alert('祝福发送成功！');
+        } else {
+            console.log('Response Status:', response.status);
+            response.text().then(text => console.log('Response Body:', text));
+            throw new Error('服务器处理出错');
+        }
+    })
+    .catch(error => {
+        console.error('Fetch Error:', error);
+        alert('服务器故障，请截图此消息后以别的形式发送给我。');
+    });
 });
 
 
